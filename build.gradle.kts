@@ -14,6 +14,9 @@ plugins {
     `maven-publish`
 }
 
+group = "com.github.rspieldenner.example"
+version = "0.1.0"
+
 repositories {
     jcenter()
     maven("$buildDir/repo/mavenrepo")
