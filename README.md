@@ -22,7 +22,6 @@ g0:n1:0.1.0 -> 0.2.0
    ]
 \--- g1:a0:1.0.0
      \--- compileClasspath
-
 ```
 
 
@@ -42,5 +41,19 @@ g0:n0:0.2.0
      +--- g1:a0:1.0.0
      |    \--- compileClasspath
      \--- g0:n0:0.2.0 (*)
+```
+
+run `./gradlew dependencyInsight --configuration compileClasspath --dependency substitute`
+
+see
+
+```
+> Task :dependencyInsight
+brokenexample:substitute:1.0.1 (Substitution for brokenexample:substitute : changed 1.0.0 with 1.0.1)
+   variant "compile" [
+      org.gradle.status = release (not requested)
+      org.gradle.usage  = java-api
+   ]
+\--- compileClasspath
 
 ```
