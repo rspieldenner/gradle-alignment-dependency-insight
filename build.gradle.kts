@@ -50,6 +50,7 @@ dependencies {
     implementation("brokenexample:substitute:1.0.0")
     implementation("replacement:umbrella:1.0.0")
     implementation("replacement:align1:1.0.1")
+    implementation("replacement:align0:1.1.0")
     
     components {
         withModule("g0:n0") {
@@ -126,10 +127,16 @@ tasks {
                     .addModule("replacement:align1:1.0.0")
                     .addModule("replacement:align0:1.0.1")
                     .addModule("replacement:align1:1.0.1")
+                    .addModule("replacement:align0:1.1.0")
+                    .addModule("replacement:align1:1.1.0")
                     .build()
             val generator = GradleDependencyGenerator(graph, "$buildDir/repo")
             generator.generateTestMavenRepo()
         }
+    }
+
+    "compileJava" {
+        dependsOn("genDeps")
     }
 }
 
